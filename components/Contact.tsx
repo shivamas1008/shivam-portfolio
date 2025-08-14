@@ -17,14 +17,14 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'shivam.bhardwaj.dev@email.com',
-      href: 'mailto:shivam.bhardwaj.dev@email.com'
+      value: 'shivambhardwaj719@gmail.com',
+      href: 'mailto:shivambhardwaj719@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+91 6376082733',
+      href: 'tel:+916376082733'
     },
     {
       icon: MapPin,
@@ -44,7 +44,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/shivambhardwaj-dev',
+      href: 'https://www.linkedin.com/in/shivambhardwaj1812',
       color: 'hover:text-blue-500'
     }
   ];
