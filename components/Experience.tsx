@@ -77,7 +77,7 @@ const Experience = () => {
   };
 
   const cardVariants = {
-    hidden: (index) => ({
+    hidden: (index: number) => ({
       opacity: 0,
       x: index % 2 === 0 ? -100 : 100,
       rotateY: index % 2 === 0 ? -15 : 15,
