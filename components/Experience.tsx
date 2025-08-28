@@ -83,18 +83,18 @@ const Experience = () => {
       rotateY: index % 2 === 0 ? -15 : 15,
       scale: 0.8
     }),
-    visible: (index: number) => ({
+    visible: {
       opacity: 1,
       x: 0,
       rotateY: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15,
         duration: 0.8
       }
-    })
+    }
   };
 
   const dotVariants = {
@@ -103,7 +103,7 @@ const Experience = () => {
       scale: 1,
       rotate: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 10,
         delay: 0.5
@@ -124,7 +124,7 @@ const Experience = () => {
       scale: 1,
       rotateX: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 120,
         damping: 12
       }
@@ -142,7 +142,7 @@ const Experience = () => {
       x: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 150,
         damping: 12
       }
@@ -157,7 +157,7 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ 
             duration: 1,
-            type: "spring",
+            type: "spring" as const,
             stiffness: 80,
             damping: 15
           }}
@@ -170,7 +170,7 @@ const Experience = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{
               duration: 0.8,
-              type: "spring",
+              type: "spring" as const,
               stiffness: 120,
               damping: 10
             }}
@@ -229,7 +229,7 @@ const Experience = () => {
                     rotateY: index % 2 === 0 ? -2 : 2,
                     boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
                     transition: { 
-                      type: "spring",
+                      type: "spring" as const,
                       stiffness: 300,
                       damping: 20
                     }
@@ -341,7 +341,7 @@ const Experience = () => {
                 rotateY: 5,
                 boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
                 transition: { 
-                  type: "spring",
+                  type: "spring" as const,
                   stiffness: 300,
                   damping: 20
                 }
