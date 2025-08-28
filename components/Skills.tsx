@@ -8,7 +8,6 @@ const Skills = () => {
   const [animatedSkills, setAnimatedSkills] = useState<{ [key: string]: number }>({});
   const [isClient, setIsClient] = useState(false);
 
-  // Fixed particle configurations to ensure SSR/client consistency
   const particleConfigs = [
     { left: 66.31, top: 30.89, width: 5.59, height: 4.91, colorIndex: 0 },
     { left: 63.89, top: 60.91, width: 3.14, height: 4.79, colorIndex: 1 },
