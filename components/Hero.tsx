@@ -66,12 +66,7 @@ const Hero = () => {
     animate: {
       y: [0, -20, 0],
       opacity: [0.3, 0.8, 0.3],
-      scale: [1, 1.2, 1],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
+      scale: [1, 1.2, 1]
     }
   };
 
@@ -82,7 +77,8 @@ const Hero = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 1.2
+        delayChildren: 1.2,
+        when: "beforeChildren"
       }
     }
   };
@@ -92,12 +88,7 @@ const Hero = () => {
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
+      scale: 1
     }
   };
 
@@ -140,7 +131,7 @@ const Hero = () => {
             delay, 
             duration: duration,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.4, 0.0, 0.2, 1],
             times: [0, 0.3, 0.7, 1]
           }}
           className="absolute floating"
@@ -163,8 +154,9 @@ const Hero = () => {
           animate="animate"
           transition={{
             delay: i * 0.2,
-            duration: 2 + (i % 3), // Varied duration based on index
+            duration: 2 + (i % 3),
             repeat: Infinity,
+            ease: "easeInOut"
           }}
         />
       ))}
@@ -211,7 +203,7 @@ const Hero = () => {
                 animate={{ 
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 3, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }}
                 className="text-2xl md:text-3xl lg:text-4xl font-semibold bg-gradient-to-r from-foreground via-primary to-foreground bg-[length:200%_200%] bg-clip-text text-transparent mb-4"
               >
                 Python Backend Developer
@@ -221,7 +213,7 @@ const Hero = () => {
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
-                transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
+                transition={{ delay: 1, duration: 1.5, ease: [0.4, 0.0, 0.2, 1] }}
                 className="h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full mx-auto lg:mx-0"
                 style={{ maxWidth: "300px" }}
               />
@@ -290,7 +282,7 @@ const Hero = () => {
                 <motion.span
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                   animate={{ x: ["-100%", "100%"] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{ duration: 2, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }}
                 />
                 <span className="relative z-10">View My Work</span>
               </motion.button>
@@ -318,6 +310,11 @@ const Hero = () => {
                 <motion.span
                   key={tech}
                   variants={itemVariants}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 12
+                  }}
                   whileHover={{ 
                     scale: 1.1, 
                     color: "rgba(var(--primary))",
@@ -342,7 +339,7 @@ const Hero = () => {
                 animate={{ rotate: 360, scale: [1, 1.1, 1] }}
                 transition={{ 
                   rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 4, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }
                 }}
                 className="absolute -inset-8 border-2 border-primary/20 rounded-full"
               />
@@ -350,7 +347,7 @@ const Hero = () => {
                 animate={{ rotate: -360, scale: [1.1, 1, 1.1] }}
                 transition={{ 
                   rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 3, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }
                 }}
                 className="absolute -inset-12 border border-purple-500/20 rounded-full border-dashed"
               />
@@ -375,21 +372,19 @@ const Hero = () => {
                       "radial-gradient(circle, rgba(var(--primary), 0.3) 0%, transparent 70%)"
                     ]
                   }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{ duration: 4, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }}
                 />
                 
                 <div className="relative w-full h-full glass-card rounded-full p-3 backdrop-blur-xl">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full flex items-center justify-center">
-                    <motion.div
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-                      whileHover={{ scale: 1.02 }}
-                      className="text-6xl font-bold gradient-text"
-                    >
-                      SB
-                    </motion.div>
-                  </div>
+                  <motion.img
+                    src="/shivam.jpeg"
+                    alt="Shivam Bhardwaj - Python Backend Developer"
+                    className="w-full h-full object-cover rounded-full"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+                    whileHover={{ scale: 1.02 }}
+                  />
                   
                   <motion.div
                     className="absolute inset-3 rounded-full bg-gradient-to-tr from-primary/10 via-transparent to-purple-500/10"
@@ -407,8 +402,8 @@ const Hero = () => {
                 }}
                 transition={{ 
                   rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                  y: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 3, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] },
+                  y: { duration: 2, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }
                 }}
                 className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/20"
               >
@@ -423,8 +418,8 @@ const Hero = () => {
                 }}
                 transition={{ 
                   rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                  x: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 4, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] },
+                  x: { duration: 2.5, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }
                 }}
                 className="absolute -bottom-6 -left-6 w-18 h-18 bg-gradient-to-br from-purple-500/30 to-purple-500/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-purple-500/20"
               >
@@ -439,8 +434,8 @@ const Hero = () => {
                 }}
                 transition={{ 
                   rotate: { duration: 15, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 2.5, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] },
+                  y: { duration: 3, repeat: Infinity, ease: [0.4, 0.0, 0.2, 1] }
                 }}
                 className="absolute top-1/2 -right-8 w-16 h-16 bg-gradient-to-br from-green-500/30 to-green-500/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-green-500/20"
               >
@@ -474,7 +469,7 @@ const Hero = () => {
           transition={{ 
             duration: 2, 
             repeat: Infinity, 
-            ease: "easeInOut" 
+            ease: [0.4, 0.0, 0.2, 1] 
           }}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
