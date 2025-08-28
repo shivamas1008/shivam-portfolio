@@ -83,7 +83,7 @@ const Experience = () => {
       rotateY: index % 2 === 0 ? -15 : 15,
       scale: 0.8
     }),
-    visible: () => ({
+    visible: (index: number) => ({
       opacity: 1,
       x: 0,
       rotateY: 0,
