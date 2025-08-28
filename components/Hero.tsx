@@ -379,15 +379,17 @@ const Hero = () => {
                 />
                 
                 <div className="relative w-full h-full glass-card rounded-full p-3 backdrop-blur-xl">
-                  <motion.img
-                    src="/shivam.jpeg"
-                    alt="Shivam Bhardwaj - Python Backend Developer"
-                    className="w-full h-full object-cover rounded-full"
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-                    whileHover={{ scale: 1.02 }}
-                  />
+                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full flex items-center justify-center">
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+                      whileHover={{ scale: 1.02 }}
+                      className="text-6xl font-bold gradient-text"
+                    >
+                      SB
+                    </motion.div>
+                  </div>
                   
                   <motion.div
                     className="absolute inset-3 rounded-full bg-gradient-to-tr from-primary/10 via-transparent to-purple-500/10"
